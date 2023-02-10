@@ -1,0 +1,49 @@
+{
+    "name": "Extension",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": {
+          "16": "assets/icon16.png",
+          "48": "assets/icon48.png",
+          "128": "assets/icon128.png"
+        },
+        "default_title": "Extension",
+        "default_popup": "popup/index.html"
+    },
+    "permissions": [
+        "tabs",
+        "contextMenus",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+    },
+    "background": {
+        "service_worker": "background/main.js"
+    },
+    "options_ui": {
+        "page": "options/index.html",
+        "open_in_tab": true
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content-scripts/main.js"],
+            "css": ["content-scripts/style.css"]
+        }
+    ],
+    "web_accessible_resources": [{
+        "resources": ["content-scripts/style.css"],
+        "matches": ["<all_urls>"]
+    }]
+}

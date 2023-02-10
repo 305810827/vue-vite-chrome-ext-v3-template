@@ -1,0 +1,38 @@
+{
+  "name": "vue-vite-chrome-ext-v3-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env CRX_ENV=development run-p dev:*",
+    "dev:code": "vite build",
+    "dev:content": "vite build --config vite.content.config.js",
+    "dev:copy": "node scripts/monitor.js",
+    "build": "cross-env CRX_ENV=production pnpm clear && vite build && vite build --config vite.content.config.ts && node scripts/monitor.js",
+    "clear": "rimraf extension"
+  },
+  "dependencies": {
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-icons": "^0.6.5",
+    "vite-plugin-replace": "^0.1.1",
+    "vue": "^3.0.5",
+    "ws": "^8.12.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.7.0",
+    "@asigloo/prettier-config": "^0.2.0",
+    "@iconify/json": "^1.1.387",
+    "@vitejs/plugin-vue": "^1.3.0",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.3.1",
+    "chokidar": "^3.5.3",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "vite": "^2.4.4",
+    "vite-plugin-chrome-extension": "^0.0.7",
+    "vite-plugin-components": "^0.13.2",
+    "vite-plugin-icons": "^0.6.5"
+  },
+  "author": "",
+  "license": "ISC"
+}
